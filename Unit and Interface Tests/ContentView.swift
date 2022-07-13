@@ -51,7 +51,7 @@ struct ContentView: View {
                             .bold()
                         TextField("Search word or number", text: $searchFieldWord)
                             .padding(.horizontal, 5)
-                            .background(Color.white)
+                            .background(Color.primary.colorInvert())
                             .border(.secondary, width: 1)
                     }
                     .padding()
