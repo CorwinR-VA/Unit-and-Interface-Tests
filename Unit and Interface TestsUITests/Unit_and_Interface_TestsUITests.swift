@@ -29,6 +29,16 @@ class Unit_and_Interface_TestsUITests: XCTestCase {
         XCTAssertEqual(table.cells.count, 7, "There should be 7 rows initially")
     }
     
+    func testUserFilteringString() {
+        let app = XCUIApplication()
+        app.launch()
+        app.navigationBars["Testing Project"].buttons["Search"].tap()
+        app.textFields["Search word or number"].tap()
+        app.textFields["Search word or number"].typeText("test")
+        app.buttons["Filter"].tap()
+        XCTAssertEqual(app.tables.cells.count, 56, "There should be 56 words matching 'test'")
+    }
+    
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             // This measures how long it takes to launch your application.
